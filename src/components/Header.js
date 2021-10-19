@@ -95,12 +95,12 @@ const Header = (props) => {
             </a>
           </NavMenu>
           <SignOut>
-            {/* <UserImg src={userPhoto} alt={username} /> */}
+            <UserImg src={userPhoto} alt={username} />
             <DropDown>
               <span onClick={handleAuth}>Sign out</span>
             </DropDown>
           </SignOut>
-          <UserImg src={userPhoto} alt={username} />
+          {/* <UserImg src={userPhoto} alt={username} /> */}
         </>
       )}
     </Nav>
