@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { auth, provider } from "../firebase";
+import { useEffect } from "react";
 import {
   selectUserName,
   selectUserPhoto,
-  selectUserEmail,
   setUserLoginDetails,
 } from "../features/user/userSlice";
 
@@ -14,6 +14,18 @@ const Header = (props) => {
   const history = useHistory();
   const username = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
+
+  // useEffect (ES7 React/Redux/Snippets)
+  // use effect only runs when
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        history.push("/home");
+      }
+    });
+  }, [username]);
+  //the state is changed.
 
   const handleAuth = () => {
     auth
@@ -41,33 +53,40 @@ const Header = (props) => {
       <Logo>
         <img src="/images/logo.svg" alt="Disney+" />
       </Logo>
-      <NavMenu>
-        <a href="/home">
-          <img src="/images/home-icon.svg" alt="HOME" />
-          <span>HOME</span>
-        </a>
-        <a href="/">
-          <img src="/images/movie-icon.svg" alt="MOVIES" />
-          <span>MOVIES</span>
-        </a>
-        <a href="/">
-          <img src="/images/original-icon.svg" alt="ORIGINAL" />
-          <span>ORIGINAL</span>
-        </a>
-        <a href="/">
-          <img src="/images/search-icon.svg" alt="SEARCH" />
-          <span>SEARCH</span>
-        </a>
-        <a href="/">
-          <img src="/images/series-icon.svg" alt="SERIES" />
-          <span>SERIES</span>
-        </a>
-        <a href="/">
-          <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
-          <span>WATCHLIST</span>
-        </a>
-      </NavMenu>
-      <Login onClick={handleAuth}>Login</Login>
+
+      {!username ? (
+        <Login onClick={handleAuth}>Login</Login>
+      ) : (
+        <>
+          <NavMenu>
+            <a href="/home">
+              <img src="/images/home-icon.svg" alt="HOME" />
+              <span>HOME</span>
+            </a>
+            <a href="/">
+              <img src="/images/movie-icon.svg" alt="MOVIES" />
+              <span>MOVIES</span>
+            </a>
+            <a href="/">
+              <img src="/images/original-icon.svg" alt="ORIGINAL" />
+              <span>ORIGINAL</span>
+            </a>
+            <a href="/">
+              <img src="/images/search-icon.svg" alt="SEARCH" />
+              <span>SEARCH</span>
+            </a>
+            <a href="/">
+              <img src="/images/series-icon.svg" alt="SERIES" />
+              <span>SERIES</span>
+            </a>
+            <a href="/">
+              <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+              <span>WATCHLIST</span>
+            </a>
+          </NavMenu>
+          <UserImg src={userPhoto} alt={username} />
+        </>
+      )}
     </Nav>
   );
 };
@@ -176,5 +195,9 @@ const Login = styled.a`
     color: #000;
     border-color: transparent;
   }
+`;
+
+const UserImg = styled.img`
+  height: 100%;
 `;
 export default Header;
