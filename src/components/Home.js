@@ -1,22 +1,16 @@
 import styled from "styled-components";
+import ImgSlider from "./ImgSlider";
+
 const Home = (props) => {
   return (
     <Container>
-      <h2>hello</h2> <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
-      <h2>hello</h2>
+      <ImgSlider />
     </Container>
   );
 };
 const Container = styled.main`
   position: relative;
-  min-heigth: calc(100vh - 250px);
+  min-height: calc(100vh - 250px);
   overflow-x: hidden;
   display: block;
   top: 72px;
