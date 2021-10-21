@@ -52,10 +52,10 @@ const Wrap = styled.div`
     object-fit: cover;
     opacity: 1;
     position: absolute;
-    transition: opacity 500ms ease-in-out 0s;
     width: 100%;
     z-index: 1;
     top: 0;
+    transition: opacity 500ms ease-in-out 0s;
   }
 `;
 

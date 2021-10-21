@@ -65,10 +65,10 @@ const Carousel = styled(Slider)`
   .slick-list {
     overflow: initial;
   }
-  .slick-prev {
+  .prevArrow {
     left: -75px;
   }
-  .slick-next {
+  .nextArrow {
     right: -75px;
   }
 `;
