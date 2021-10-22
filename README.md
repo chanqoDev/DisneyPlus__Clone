@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 <details>
 
@@ -77,4 +77,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
  </details>
 
-### Disney+ clone uses the following technologies: JS,ES6,NPM,REACT,REDUX,Firebase and react best practices.
+## Watch it live here: https://disneyplus-clone-3aef7.web.app
+
+### Disney+ clone uses the following technologies: JS,ES6,NPM,REACT,REDUX,Firebase and Google Authentication.
