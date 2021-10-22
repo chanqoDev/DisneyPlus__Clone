@@ -15,6 +15,15 @@ const Detail = (props) => {
           src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F12%2FThe-Addams-Family-Logo-PNG-HD.png&f=1&nofb=1"
         />
       </ImageTitle>
+
+      <ContentMeta>
+        <Controls>
+          <Player>
+            <img src="../images/play-icon-black.png" alt="" />
+            <span>Play</span>
+          </Player>
+        </Controls>
+      </ContentMeta>
     </Container>
   );
 };
@@ -34,7 +43,6 @@ const Background = styled.div`
   right: 0px;
   top: 0px;
   z-index: -1;
-
   img {
     width: 100vw;
     height: 100vh;
@@ -50,11 +58,10 @@ const ImageTitle = styled.div`
   -webkit-box-pack: start;
   justify-content: flex-start;
   margin: 0px auto;
-  height: 30;
+  height: 30vw;
   min-height: 170px;
   padding-bottom: 24px;
   width: 100%;
-
   img {
     max-width: 600px;
     min-width: 200px;
@@ -62,4 +69,48 @@ const ImageTitle = styled.div`
   }
 `;
 
+const ContentMeta = styled.div`
+  max-width: 874px;
+`;
+
+const Controls = styled.div`
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 24px 0px;
+  min-height: 56px;
+`;
+
+const Player = styled.button`
+  font-size: 15px;
+  margin: 0px 22px 0px 0px;
+  padding: 0px 24px;
+  height: 56px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1.8px;
+  text-align: center;
+  text-transform: uppercase;
+  background: rgb (249, 249, 249);
+  border: none;
+  color: rgb(0, 0, 0);
+  img {
+    width: 32px;
+  }
+  &:hover {
+    background: rgb(198, 198, 198);
+  }
+  @media (max-width: 768px) {
+    height: 45px;
+    padding: 0px 12px;
+    font-size: 12px;
+    margin: 0px 10px 0px 0px;
+    img {
+      width: 25px;
+    }
+  }
+`;
 export default Detail;
