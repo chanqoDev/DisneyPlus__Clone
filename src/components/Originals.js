@@ -1,44 +1,24 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectOriginal } from "../features/movies/movieSlice";
 
 // this is so it won't refresh if a link is clicked.
 const Originals = (props) => {
+  const movies = useSelector(selectOriginal);
   return (
     <Container>
-      <h4>Originals</h4>
+      <h4>Originals Movies</h4>
       <Content>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
+        {movies &&
+          movies.map((movie, key) => (
+            <Wrap key={key}>
+              {movie.id}
+              <Link to={`/detail/` + movie.id}>
+                <img src={movie.cardImg} alt={movie.title} />
+              </Link>
+            </Wrap>
+          ))}
       </Content>
     </Container>
   );
