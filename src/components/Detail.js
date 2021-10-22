@@ -15,7 +15,6 @@ const Detail = (props) => {
           src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F12%2FThe-Addams-Family-Logo-PNG-HD.png&f=1&nofb=1"
         />
       </ImageTitle>
-
       <ContentMeta>
         <Controls>
           <Player>
@@ -30,6 +29,11 @@ const Detail = (props) => {
             <span />
             <span />
           </AddList>
+          <GroupWatch>
+            <div>
+              <img src="/images/group-icon.png" alt="" />
+            </div>
+          </GroupWatch>
         </Controls>
       </ContentMeta>
     </Container>
@@ -153,6 +157,28 @@ const AddList = styled.div`
       height: 16px;
       transform: translateX(-8px) rotate(0deg);
       width: 2px;
+    }
+  }
+`;
+
+const GroupWatch = styled.div`
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: white;
+
+  div {
+    height: 40px;
+    width: 40px;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+
+    img {
+      width: 100%;
     }
   }
 `;
