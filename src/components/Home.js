@@ -20,7 +20,6 @@ const Home = (props) => {
   let trending = [];
 
   useEffect(() => {
-    console.log("hello");
     db.collection("movies").onSnapshot((snapshot) => {
       snapshot.docs.map((doc) => {
         console.log(recommends);
@@ -29,11 +28,11 @@ const Home = (props) => {
             recommends = [...recommends, { id: doc.id, ...doc.data() }];
             break;
 
-          case "NewDisney":
+          case "new":
             newDisneys = [...newDisneys, { id: doc.id, ...doc.data() }];
             break;
 
-          case "originals":
+          case "original":
             originals = [...originals, { id: doc.id, ...doc.data() }];
             break;
 

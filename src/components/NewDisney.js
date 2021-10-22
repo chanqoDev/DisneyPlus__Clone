@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNewDisney } from "../features/movies/movieSlice";
 
-// this is so it won't refresh if a link is clicked.
 const NewDisney = (props) => {
   const movies = useSelector(selectNewDisney);
+
   return (
     <Container>
-      <h4>New to Disney</h4>
+      <h4>New to Disney+</h4>
       <Content>
         {movies &&
           movies.map((movie, key) => (
@@ -23,9 +23,11 @@ const NewDisney = (props) => {
     </Container>
   );
 };
+
 const Container = styled.div`
   padding: 0 0 26px;
 `;
+
 const Content = styled.div`
   display: grid;
   grid-gap: 25px;
@@ -66,4 +68,5 @@ const Wrap = styled.div`
     border-color: rgba(249, 249, 249, 0.8);
   }
 `;
+
 export default NewDisney;
