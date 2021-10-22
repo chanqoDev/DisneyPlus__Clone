@@ -1,51 +1,34 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectRecommend } from "../features/movies/movieSlice";
 
-// this is so it won't refresh if a link is clicked.
 const Recommends = (props) => {
+  const movies = useSelector(selectRecommend);
+  console.log(movies, ":🛢️");
+
   return (
     <Container>
-      <h4> Recommends for you!</h4>
+      <h4>Recommended for You</h4>
       <Content>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://s.yimg.com/ny/api/res/1.2/tSpEV6iTDj0eY8J76dVV3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTUyODtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/wdpTBK0WSs5xsTVipG0WIQ--~B/aD0xMjc2O3c9MTcwMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/7f7702f7295a9df26ea7b09e2478eabb"
-              alt=""
-            />
-          </Link>
-        </Wrap>
+        {movies &&
+          movies.map((movie, key) => (
+            <Wrap key={key}>
+              {movie.id}
+              <Link to={`/detail/` + movie.id}>
+                <img src={movie.cardImg} alt={movie.title} />
+              </Link>
+            </Wrap>
+          ))}
       </Content>
     </Container>
   );
 };
+
 const Container = styled.div`
   padding: 0 0 26px;
 `;
+
 const Content = styled.div`
   display: grid;
   grid-gap: 25px;
@@ -67,6 +50,7 @@ const Wrap = styled.div`
   position: relative;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
   border: 3px solid rgba(249, 249, 249, 0.1);
+
   img {
     inset: 0px;
     display: block;
@@ -79,6 +63,7 @@ const Wrap = styled.div`
     z-index: 1;
     top: 0;
   }
+
   &:hover {
     box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
       rgb(0 0 0 / 72%) 0px 30px 22px -10px;
@@ -86,4 +71,5 @@ const Wrap = styled.div`
     border-color: rgba(249, 249, 249, 0.8);
   }
 `;
+
 export default Recommends;
