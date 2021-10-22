@@ -6,7 +6,7 @@ const Detail = (props) => {
       <Background>
         <img
           alt=""
-          src="https://amc-theatres-res.cloudinary.com/image/upload/c_fill,f_auto,fl_lossy,g_auto,h_450,q_auto,w_767/v1633364472/amc-cdn/production/2/movies/66500/66489/MovieStillDynamic/129073.jpg"
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyesofcorsa.com%2Fwp-content%2Fuploads%2F2020%2F01%2FThe-Addams-Family-Wallpaper1.jpg&f=1&nofb=1"
         />
       </Background>
       <ImageTitle>
@@ -23,9 +23,13 @@ const Detail = (props) => {
             <span>Play</span>
           </Player>
           <Trailer>
-            <img src="../images/play-icon-black.png" alt="" />
+            <img src="../images/play-icon-white.png" alt="" />
             <span>Trailer</span>
           </Trailer>
+          <AddList>
+            <span />
+            <span />
+          </AddList>
         </Controls>
       </ContentMeta>
     </Container>
@@ -122,5 +126,34 @@ const Trailer = styled(Player)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
+`;
+
+const AddList = styled.div`
+  margin-right: 16px;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+
+  span {
+    background-color: rgb(249, 249, 249);
+    display: inline-block;
+
+    &:first-child {
+      height: 2px;
+      transform: translate(1px, 0px) rotate(0deg);
+      width: 16px;
+    }
+    &:nth-child(2) {
+      height: 16px;
+      transform: translateX(-8px) rotate(0deg);
+      width: 2px;
+    }
+  }
 `;
 export default Detail;
