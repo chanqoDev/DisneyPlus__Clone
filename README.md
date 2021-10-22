@@ -76,3 +76,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     </p>
 
  </details>
+
+### Disney+ clone uses the following technologies: JS,ES6,NPM,REACT,REDUX,Firebase and react best practices.
