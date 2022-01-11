@@ -25,7 +25,7 @@ const Header = (props) => {
         history.push("/home");
       }
     });
-  }, [username]);
+  }, [username, history]);
 
   const handleAuth = () => {
     if (!username) {
